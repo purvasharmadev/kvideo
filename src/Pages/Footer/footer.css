@@ -1,0 +1,9 @@
+footer {
+    background-color: var(--GRAY-COLOR);
+    height: 6rem;
+    bottom: 0;
+  }
+  footer div {
+    height: 3rem;
+    margin-bottom:1rem;
+  }
