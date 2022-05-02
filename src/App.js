@@ -5,11 +5,11 @@ import URLRoutes from "./router";
 
 function App() {
   return (
-    <div>
+    <>
       <Nav/>
       <URLRoutes/>
       <Footer/>
-    </div>
+    </>
   );
 }
 
