@@ -1,4 +1,5 @@
 import React from "react";
+import './nav.css'
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
 import { HomePage } from "../HomePage/home-page";
@@ -12,7 +13,7 @@ function Nav() {
   }
 
   return (
-    <nav className="bg-primary color-white position-relative nav-resp">
+    <nav className="bg-primary color-white nav-resp">
       <h2 className="nav-brand">
         <img
           src={logo}
@@ -27,17 +28,22 @@ function Nav() {
       <span onClick={ClickHandler} className="nav-toggle nav-link">
         &#9776;
       </span>
-      <ul className="navbar-list">
+      <ul className="navbar-list bg-primary">
         <li className="nav-item">
           <Link to={<HomePage/>} className=" nav-link link">
             Home
           </Link>
         </li>
-        {/* <li className="nav-item">
-          <Link to={<Login/>} className=" nav-link link">
-            Login
+        <li className="nav-item">
+          <Link to={<HomePage/>} className=" nav-link link">
+            About
           </Link>
-        </li> */}
+        </li>
+        <li className="nav-item">
+          <Link to={<HomePage/>} className=" nav-link link">
+          Contact
+          </Link>
+        </li>
       </ul>
     </nav>
   );
