@@ -4,8 +4,11 @@ import {
   BsFillBookmarkPlusFill
 } from "react-icons/bs";
 
+import {useNavigate} from "react-router-dom";
+
 
 function Explore() {
+    const navigateTo = useNavigate()
     const {video,loading} = useVideo()
 
   return (
@@ -16,7 +19,9 @@ function Explore() {
         {
             video && video.map((item)=>{
                 return(
-                    <div className="video-card">
+                    <div  onClick={()=>{
+                      navigateTo(`/explore/${item._id}`)
+                    }}  className="video-card">
                     <div className="video-img">
                       <img
                         className="img-responsive video-img"
