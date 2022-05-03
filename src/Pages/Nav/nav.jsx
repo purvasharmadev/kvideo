@@ -12,7 +12,7 @@ function Nav() {
   }
 
   return (
-    <nav className="bg-primary color-white nav-resp">
+    <nav className="color-white nav-resp">
       {/* Logo */}
       <h2 className="nav-brand">
         <img
@@ -37,16 +37,6 @@ function Nav() {
       <li className="nav-item">
           <Link to="/explore" className=" nav-link link">
           Explore
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/" className=" nav-link link">
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/" className=" nav-link link">
-            About
           </Link>
         </li>
       </ul>
