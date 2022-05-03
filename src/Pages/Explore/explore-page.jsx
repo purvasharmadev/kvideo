@@ -6,7 +6,7 @@ import {
 
 
 function Explore() {
-    const {video,loading,error} = useVideo()
+    const {video,loading} = useVideo()
 
   return (
     <>
