@@ -28,11 +28,13 @@ export const categories = [
     img:"https://img.buzzfeed.com/buzzfeed-static/static/2018-10/16/6/asset/buzzfeed-prod-web-02/anigif_sub-buzz-24023-1539685203-1.gif"
 
   },
+
+];
+
   // {
   //   _id: uuid(),
   //   categoryName: "Comedy",
   //   img:"https://c.tenor.com/nsk_Q1JeZAEAAAAC/kim-ji-won-fight-for-my-way.gif"
 
   // }
-];
 // https://img.buzzfeed.com/buzzfeed-static/static/2018-10/16/6/asset/buzzfeed-prod-web-02/anigif_sub-buzz-24023-1539685203-1.gif
