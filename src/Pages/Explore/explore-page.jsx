@@ -36,9 +36,20 @@ function Explore() {
                     </div>
                     <div className="video-body">
                       <h2 className="video-name">{item.title}</h2>
-                      <h6 className="video-info">
-                        {item.season} season, {item.episode} episodes
-                      </h6>
+                      {
+               item.category === "Movie" || "Reality" ?
+               (
+                <h6 className="video-info">
+                  {item.category}
+                </h6>
+
+               ):        (
+                <h6 className="video-info">
+                  {item.season} Season, {item.episode} Episodes
+                  </h6>
+               )              
+
+             }
                     </div>
                   </div>
                 )
