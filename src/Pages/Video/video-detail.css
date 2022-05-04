@@ -1,0 +1,91 @@
+.bg-responsive {
+  width: 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: 100% 100%;
+  background-clip: content-box;
+  max-inline-size: 100%;
+}
+
+.bg-blur {
+  backdrop-filter: blur(5px) grayscale(5%) saturate(60%) brightness(40%);
+}
+
+.bg-div {
+  max-width: 100vw;
+  height: 100%;
+  width: 100%;
+}
+
+.iframe-responsive {
+  block-size: 60%;
+  width: 50%;
+}
+
+.bg-div .vid-desc-flex {
+  margin: auto auto;
+  padding: 2rem;
+  width: 90vw;
+}
+
+.vid-desc {
+  letter-spacing: 2px;
+  line-height: 1.5rem;
+  padding-right: 10px;
+  text-align: justify;
+}
+
+.vid-desc button,
+p,
+span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.vid-title {
+  margin-top: 0;
+  line-height: 1.5rem;
+}
+
+.vid-info {
+  margin-top: -1rem;
+  line-height: 1.5rem;
+  font-weight: 200;
+}
+
+@media (min-width: 780px) {
+  .bg-responsive {
+    height: 100vh;
+  }
+  .bg-div {
+    height: 100vh;
+  }
+  .bg-div .vid-desc-flex {
+    height: 100%;
+  }
+}
+
+@media (max-width: 770px) {
+  .bg-div .vid-desc-flex {
+    flex-wrap: wrap-reverse;
+    padding: 2rem 0;
+  }
+  .vid-title {
+    margin-top: 10px;
+  }
+  .vid-desc {
+    width: 100%;
+  }
+  .iframe-responsive {
+    width: 100%;
+    block-size: 40%;
+    height: 21.87rem;
+  }
+  .vid-data {
+    flex-wrap: wrap;
+    font-size: 13px;
+    margin: 0;
+    padding: 0px;
+  }
+}
