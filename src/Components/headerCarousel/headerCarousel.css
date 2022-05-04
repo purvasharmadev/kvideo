@@ -1,0 +1,42 @@
+.carousel-container {
+    max-height: 100vh;
+    max-width: 100vw;
+    width: 100%;
+    height: 25rem;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: 100% 100%;
+    object-position: center;
+    background-clip: content-box;
+    max-inline-size: 100%;
+    opacity: 0.9;
+  }
+  
+  .carousel-center {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .carousel-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color:var(--TEXT-COLOR);
+  }
+  
+  .btn-float {
+    border-radius: 0;
+    background: none;
+    transition: transform 0.2s;
+    opacity:0.6;
+  }
+  .btn-float:hover {
+      color:white;
+    box-shadow: none;
+    transform: scale(
+      1.1
+    )
+  }
+  

@@ -1,0 +1,34 @@
+/* categroy-container */
+.category-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    flex: 1;
+    margin: 1rem 2rem;
+  }
+  
+  .category-container .card {
+    margin: 10px;
+    height: 8rem;
+    width: calc(100% / 5);
+    cursor: pointer;
+  }
+  
+  .card-overlay .card-body {
+    background: none;
+    padding: 0;
+    bottom: 100px;
+  }
+  
+  .card-overlay .card-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--BACKGROUND-COLOR);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    margin: 1rem 0;
+  }
+  

@@ -1,0 +1,13 @@
+.navbar-list.toggle-active{
+    z-index: 999;
+    position: absolute;
+    top:3rem;
+    opacity:0.8;
+}
+
+
+@media (max-width:770px) {
+    nav{
+        position: relative;
+    }
+}

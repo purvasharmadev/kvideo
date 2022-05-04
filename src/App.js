@@ -1,11 +1,15 @@
 import "./App.css";
+import Nav from "./Pages/Nav/nav"
+import Footer from "./Pages/Footer/footer";
+import URLRoutes from "./router";
 
 function App() {
   return (
-    <div>
-      <h2>This is Video Library</h2>
-
-    </div>
+    <>
+      <Nav/>
+      <URLRoutes/>
+      <Footer/>
+    </>
   );
 }
 
