@@ -5,8 +5,6 @@ const VideoContext = createContext()
 
 function VideoProvider({children}){
     const {response,error,loading} = useAxios("/api/videos")
-
-    console.log("response from context ", response)
     
     return(
         <VideoContext.Provider value={{video:response.videos,error,loading}}>

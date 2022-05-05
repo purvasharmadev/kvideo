@@ -1,17 +1,22 @@
 import React from "react";
+import { useAxios } from "../../Hooks/useAxios";
 import { useParams } from "react-router-dom";
 import "./video-detail.css";
-import { useVideo } from "../../Context/video-context";
 import { BsHeart } from "react-icons/bs";
 
 export function VideoDetail() {
-  const { video } = useVideo();
   const { videoId } = useParams();
-  const matchId = (item) => item._id === videoId;
-  let item = video.find(matchId);
+  const {response,error,loading} = useAxios(`/api/video/${videoId}`)
+  // const matchId = (item) => item._id === videoId;
+  // let item = video.find(matchId);
+  let item = response.video
 
   return (
-    <div
+    <>
+    {loading && <h2 align="center">loading....</h2>}
+    {error && <h2>{error}</h2>}
+    {
+      response.length !== 0 ? <div
       style={{
         backgroundImage: `url(${item.banner})`,
       }}
@@ -69,5 +74,9 @@ export function VideoDetail() {
         </div>
       </div>
     </div>
+    : ""
+    }    
+    </>
+
   );
 }
