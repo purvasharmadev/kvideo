@@ -1,21 +1,17 @@
 import '../../Pages/HomePage/home-page.css'
-import React from "react";
+import React,{useEffect} from "react";
 import { useAxios } from "../../Hooks/useAxios";
 import {CategoryCard} from "../../Pages/Category/category-card"
 
 function CategoryList() {
-  const { response, error, loading } = useAxios("/api/categories");
+  const { response, error, loading,fetchData } = useAxios();
 
-  // const [category,setCategory] = useState([])
-
-  // async function getCategory(){
-  //     let res = await axios.get("/api/categories")
-  //     setCategory(res.data.categories)
-  // }
-
-  // useEffect(() => {
-  //   getCategory()
-  // }, [])
+  useEffect(()=>{
+    fetchData({
+      method:"get",
+      url:"/api/categories"
+    })
+  })
 
   return (
     <>
