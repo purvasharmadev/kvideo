@@ -3,7 +3,11 @@ import './nav.css'
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
 
+import {useAuth} from "../../Auth/auth-context"
+
 function Nav() {
+
+  const {isLoggedIn,logOut} = useAuth()
 
     // function to toggle on small screen
   function ClickHandler() {
@@ -39,6 +43,20 @@ function Nav() {
           Explore
           </Link>
         </li>
+        {
+          isLoggedIn ? 
+          <li className="nav-item">
+          <span onClick={logOut} className=" nav-link link">
+          Logout
+          </span>
+       </li> :
+          <li className="nav-item">
+          <Link to="/login" className=" nav-link link">
+          Login
+          </Link>
+        </li>
+        }
+
       </ul>
     </nav>
   );
