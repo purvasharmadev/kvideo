@@ -41,6 +41,7 @@ function Login() {
   useEffect(() => {
     if (response !== undefined && response.foundUser) {
       setIsLoggedIn(true);
+      localStorage.setItem("userToken",response.encodedToken)
       toast.success("Sucessfully Login!",{id:"login-success",position: toast.POSITION.TOP_RIGHT,
       autoClose:2000})
       location.state !== null
