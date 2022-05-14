@@ -3,10 +3,16 @@ import { useAxios } from "../../Hooks/useAxios";
 import { useParams } from "react-router-dom";
 import "./video-detail.css";
 import { BsHeart } from "react-icons/bs";
+import { useLiked } from "../../Context/liked-context";
 
 export function VideoDetail() {
   const { videoId } = useParams();
   const {response,error,loading,fetchData} = useAxios()
+  const {addToLiked} = useLiked()
+
+  function addToLikeHandler(item){
+    addToLiked(item)
+  }
 
   useEffect(() => {
     fetchData({
@@ -65,11 +71,11 @@ export function VideoDetail() {
             <div className="flex align-item-center">
               <button className="btn btn-primary"> + Add To Watchlist </button>
               <button className="btn btn-primary"> + Create Playlist </button>
-              <span className="text-md">
+              <span onClick={()=>addToLikeHandler(item)} className="text-md">
                 {" "}
                 <BsHeart />
               </span>
-              <span>Like</span>
+              <span >Like</span>
             </div>
           </div>
           <iframe

@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom";
 // VideoProvider
 import {VideoProvider} from "./Context/video-context";
 
+// import liked videos provider
+import {LikedProvider} from "./Context/liked-context";
 // AuthProvider
 import {AuthProvider} from "./Auth/auth-context";
 
@@ -19,7 +21,9 @@ ReactDOM.render(
     <BrowserRouter>
     <AuthProvider>
     <VideoProvider>
-    <App />
+      <LikedProvider>
+      <App />
+      </LikedProvider>
     </VideoProvider>
     </AuthProvider>
     </BrowserRouter>
