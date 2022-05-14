@@ -1,9 +1,7 @@
 import React from 'react';
 import { useLiked } from "../../Context/liked-context";
-import { BsFillBookmarkPlusFill,BsSuitHeart } from "react-icons/bs";
-
-import { useNavigate } from "react-router-dom";
-import { useAxios } from '../../Hooks/useAxios';
+import { BsFillTrashFill } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
 
 function LikedVideo() {
     const navigateTo = useNavigate();
@@ -16,16 +14,18 @@ function LikedVideo() {
       <>
     <h2 className="text-center color-primary">Liked Videos</h2>
       <div className="card-container mb-1">
-        {/* {loading && <h1>loading.....</h1>} 
-        onClick={() => {
-                navigateTo(`/explore/${item._id}`);
-              }}*/}
         {likedVideo.length > 0 ?
           likedVideo.map((item) => {
             return (
               <div className="video-card"
               >
-                <div className="video-img">
+                <div 
+                              onClick={() => {
+                                console.log("clicked!!")
+                                navigateTo(`/explore/${item._id}`);
+                              }}
+                
+                className="video-img">
                   <img
                     className="img-responsive video-img"
                     src={item.poster}
@@ -34,10 +34,7 @@ function LikedVideo() {
                 </div>
                 <div className="video-operation">
                   <span onClick={()=>removeFromLikedHandler(item)} className="btn-watchlist">
-                    <BsFillBookmarkPlusFill />
-                  </span>
-                  <span onClick={()=>removeFromLikedHandler(item)} className="btn-watchlist">
-                    <BsSuitHeart />
+                    <BsFillTrashFill />
                   </span>
                 </div>
                 <div className="video-body">

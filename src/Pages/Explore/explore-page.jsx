@@ -1,7 +1,6 @@
 import "./explore-page.css";
 import { useVideo } from "../../Context/video-context";
 import { BsFillBookmarkPlusFill } from "react-icons/bs";
-
 import { useNavigate } from "react-router-dom";
 
 function Explore() {
@@ -17,12 +16,13 @@ function Explore() {
           video.map((item) => {
             return (
               <div
-                onClick={() => {
-                  navigateTo(`/explore/${item._id}`);
-                }}
                 className="video-card"
               >
-                <div className="video-img">
+                <div               onClick={() => {
+                console.log("clicked!!")
+                navigateTo(`/explore/${item._id}`);
+              }}
+ className="video-img">
                   <img
                     className="img-responsive video-img"
                     src={item.poster}
