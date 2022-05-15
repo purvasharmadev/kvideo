@@ -1,24 +1,47 @@
 import { Routes, Route } from "react-router-dom";
 import MockAPI from "./mockman";
 
+// Context
+import { useAuth } from "./Auth/auth-context";
+
+// Auth Routes
+import { PrivateRoute } from "./Auth/AuthRoutes/PrivateRoutes";
+import { RestrictedRoute } from "./Auth/AuthRoutes/RestrictedRoutes";
+
 // pages
 import { HomePage } from "./Pages/HomePage/home-page";
 import { VideoDetail } from "./Pages/Video/video-detail";
 import PageNotFound from "./Pages/PageNotFound/page-not-found";
 import { Explore } from "./Pages/Explore/explore-page";
-
-
+import { Login } from "./Auth/Login/login";
+import { Signin } from "./Auth/Signup/signup";
 
 export default function URLRoutes() {
-    return (
-      <Routes>
-        <Route path="/mockman" element={<MockAPI />} />
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/explore" element={<Explore/>} />
-        <Route path="/explore/:videoId" element={<VideoDetail />} />
-        <Route path="*" element={<PageNotFound/>}/>
+  const { isLoggedIn } = useAuth();
 
-      </Routes>
-    );
-  }
-  
+  return (
+    <Routes>
+      {/* MockMan */}
+      <Route path="/mockman" element={<MockAPI />} />
+
+      {/* public routes */}
+      <Route path="/" element={<HomePage />} />
+      <Route path="/explore" element={<Explore />} />
+
+      {/* private routes */}
+      <Route exact path="/" element={<PrivateRoute login={isLoggedIn} />}>
+        <Route path="/explore/:videoId" element={<VideoDetail />} />
+      </Route>
+
+      {/* Resticted Route */}
+      {/* Auth */}
+      <Route path="/" element={<RestrictedRoute login={isLoggedIn} />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signin />} />
+      </Route>
+
+      {/* Page Not Found */}
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  );
+}

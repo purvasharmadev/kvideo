@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useAxios } from "../../Hooks/useAxios";
 import { useParams } from "react-router-dom";
 import "./video-detail.css";
@@ -6,9 +6,18 @@ import { BsHeart } from "react-icons/bs";
 
 export function VideoDetail() {
   const { videoId } = useParams();
-  const {response,error,loading} = useAxios(`/api/video/${videoId}`)
-  // const matchId = (item) => item._id === videoId;
-  // let item = video.find(matchId);
+  const {response,error,loading,fetchData} = useAxios()
+
+  useEffect(() => {
+    fetchData({
+      method:"get",
+      url:`/api/video/${videoId}`
+    })
+// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [response])
+  
+
+
   let item = response.video
 
   return (
