@@ -6,12 +6,17 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 
 // VideoProvider
-import {VideoProvider} from "./Context/video-context";
+import { VideoProvider } from "./Context/video-context";
 
 // import liked videos provider
-import {LikedProvider} from "./Context/liked-context";
+import { LikedProvider } from "./Context/liked-context";
+
+// import watchlater provider
+
+import { WatchLaterProvider } from "./Context/watchlater-context";
+
 // AuthProvider
-import {AuthProvider} from "./Auth/auth-context";
+import { AuthProvider } from "./Auth/auth-context";
 
 // Call make Server
 makeServer();
@@ -19,13 +24,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <AuthProvider>
-    <VideoProvider>
-      <LikedProvider>
-      <App />
-      </LikedProvider>
-    </VideoProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <VideoProvider>
+          <LikedProvider>
+            <WatchLaterProvider>
+              <App />
+            </WatchLaterProvider>
+          </LikedProvider>
+        </VideoProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
