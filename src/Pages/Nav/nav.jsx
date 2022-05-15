@@ -44,12 +44,22 @@ function Nav() {
           </Link>
         </li>
         {
-          isLoggedIn ? 
-          <li className="nav-item">
+          isLoggedIn ? (
+
+          <>    
+                       <li className="nav-item">
+             <Link to="/liked-video" className="nav-link link">
+             ❤
+             </Link>
+           </li>    
+            <li className="nav-item">
           <span onClick={logOut} className=" nav-link link">
           Logout
           </span>
-       </li> :
+       </li>
+
+           </>
+       ) :
           <li className="nav-item">
           <Link to="/login" className=" nav-link link">
           Login

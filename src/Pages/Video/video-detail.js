@@ -2,11 +2,21 @@ import React,{useEffect} from "react";
 import { useAxios } from "../../Hooks/useAxios";
 import { useParams } from "react-router-dom";
 import "./video-detail.css";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart,BsSuitHeartFill } from "react-icons/bs";
+import { useLiked } from "../../Context/liked-context";
 
 export function VideoDetail() {
   const { videoId } = useParams();
   const {response,error,loading,fetchData} = useAxios()
+  const {addToLiked,likedVideo,removeFromLiked} = useLiked()
+
+  function removeFromLikedHandler(item){
+    removeFromLiked(item)
+  }
+
+  function addToLikeHandler(item){
+    addToLiked(item)
+  }
 
   useEffect(() => {
     fetchData({
@@ -65,11 +75,29 @@ export function VideoDetail() {
             <div className="flex align-item-center">
               <button className="btn btn-primary"> + Add To Watchlist </button>
               <button className="btn btn-primary"> + Create Playlist </button>
-              <span className="text-md">
-                {" "}
-                <BsHeart />
-              </span>
-              <span>Like</span>
+              {
+                likedVideo.findIndex((i)=>i._id === item._id) === -1 ?    (
+                  <>
+               <span onClick={()=>addToLikeHandler(item)} className="text-md">
+                  {" "}
+                  <BsHeart />
+                </span>
+                <span >Like</span>
+                  </>
+
+                )          
+:
+(
+  <>
+                 <span onClick={()=>removeFromLikedHandler(item)} className="text-md">
+                  {" "}
+                  <BsSuitHeartFill />
+                </span>
+                <span >Unlike</span>
+  
+  </>
+)
+              }
             </div>
           </div>
           <iframe

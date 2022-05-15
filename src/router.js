@@ -11,6 +11,7 @@ import { RestrictedRoute } from "./Auth/AuthRoutes/RestrictedRoutes";
 // pages
 import { HomePage } from "./Pages/HomePage/home-page";
 import { VideoDetail } from "./Pages/Video/video-detail";
+import { LikedVideo } from "./Components/likedVideo/liked";
 import PageNotFound from "./Pages/PageNotFound/page-not-found";
 import { Explore } from "./Pages/Explore/explore-page";
 import { Login } from "./Auth/Login/login";
@@ -31,6 +32,7 @@ export default function URLRoutes() {
       {/* private routes */}
       <Route exact path="/" element={<PrivateRoute login={isLoggedIn} />}>
         <Route path="/explore/:videoId" element={<VideoDetail />} />
+        <Route path="/liked-video" element={<LikedVideo />} />
       </Route>
 
       {/* Resticted Route */}
