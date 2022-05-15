@@ -1,12 +1,23 @@
 import "./explore-page.css";
 import { useVideo } from "../../Context/video-context";
-import { BsFillBookmarkPlusFill } from "react-icons/bs";
+import { useWatchLater } from "../../Context/watchlater-context";
+import { BsFillBookmarkPlusFill, BsFillTrashFill } from "react-icons/bs";
+
 import { useNavigate } from "react-router-dom";
 
 function Explore() {
   const navigateTo = useNavigate();
   const { video, loading } = useVideo();
+  const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
+    useWatchLater();
 
+  function addTowatchLaterHandler(item) {
+    addTowatchLater(item);
+  }
+
+  function removeFromwatchLaterHandler(item) {
+    removeFromwatchLater(item);
+  }
   return (
     <>
       <h2 className="text-center color-primary">Explore</h2>
@@ -15,14 +26,14 @@ function Explore() {
         {video &&
           video.map((item) => {
             return (
-              <div
-                className="video-card"
-              >
-                <div               onClick={() => {
-                console.log("clicked!!")
-                navigateTo(`/explore/${item._id}`);
-              }}
- className="video-img">
+              <div className="video-card">
+                <div
+                  onClick={() => {
+                    console.log("clicked!!");
+                    navigateTo(`/explore/${item._id}`);
+                  }}
+                  className="video-img"
+                >
                   <img
                     className="img-responsive video-img"
                     src={item.poster}
@@ -30,9 +41,22 @@ function Explore() {
                   />{" "}
                 </div>
                 <div className="video-operation">
-                  <span className="btn-watchlist">
-                    <BsFillBookmarkPlusFill />
-                  </span>
+                  {watchLaterVideo.findIndex((i) => i._id === item._id) !==
+                  -1 ? (
+                    <span
+                      onClick={() => removeFromwatchLaterHandler(item)}
+                      className="btn-watchlist"
+                    >
+                      <BsFillTrashFill />
+                    </span>
+                  ) : (
+                    <span
+                      onClick={() => addTowatchLaterHandler(item)}
+                      className="btn-watchlist"
+                    >
+                      <BsFillBookmarkPlusFill />
+                    </span>
+                  )}
                 </div>
                 <div className="video-body">
                   <h2 className="video-name">{item.title}</h2>
