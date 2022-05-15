@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLiked } from "../../Context/liked-context";
 import { BsFillTrashFill } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LikedVideo() {
     const navigateTo = useNavigate();
