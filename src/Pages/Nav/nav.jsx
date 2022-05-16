@@ -1,15 +1,14 @@
 import React from "react";
-import './nav.css'
+import "./nav.css";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
 
-import {useAuth} from "../../Auth/auth-context"
+import { useAuth } from "../../Auth/auth-context";
 
 function Nav() {
+  const { isLoggedIn, logOut } = useAuth();
 
-  const {isLoggedIn,logOut} = useAuth()
-
-    // function to toggle on small screen
+  // function to toggle on small screen
   function ClickHandler() {
     const navList = document.getElementsByClassName("navbar-list")[0];
     return navList.classList.toggle("toggle-active");
@@ -38,35 +37,36 @@ function Nav() {
 
       <ul className="navbar-list bg-primary">
         {/* Explore */}
-      <li className="nav-item">
+        <li className="nav-item">
           <Link to="/explore" className=" nav-link link">
-          Explore
+            Explore
           </Link>
         </li>
-        {
-          isLoggedIn ? (
-
-          <>    
-                       <li className="nav-item">
-             <Link to="/liked-video" className="nav-link link">
-             ❤
-             </Link>
-           </li>    
+        {isLoggedIn ? (
+          <>
             <li className="nav-item">
-          <span onClick={logOut} className=" nav-link link">
-          Logout
-          </span>
-       </li>
-
-           </>
-       ) :
+              <Link to="/liked-video" className="nav-link link">
+                ❤
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/watch-later" className="nav-link link">
+                watch later
+              </Link>
+            </li>
+            <li className="nav-item">
+              <span onClick={logOut} className=" nav-link link">
+                Logout
+              </span>
+            </li>
+          </>
+        ) : (
           <li className="nav-item">
-          <Link to="/login" className=" nav-link link">
-          Login
-          </Link>
-        </li>
-        }
-
+            <Link to="/login" className=" nav-link link">
+              Login
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

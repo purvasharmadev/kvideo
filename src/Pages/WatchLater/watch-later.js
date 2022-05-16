@@ -1,30 +1,21 @@
-import "./explore-page.css";
-import { useVideo } from "../../Context/video-context";
+import React from "react";
 import { useWatchLater } from "../../Context/watchlater-context";
-import { BsFillBookmarkPlusFill, BsFillTrashFill } from "react-icons/bs";
-
+import { BsFillTrashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-function Explore() {
+function WatchLaterVideo() {
   const navigateTo = useNavigate();
-  const { video, loading } = useVideo();
-  const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
-    useWatchLater();
-
-  function addTowatchLaterHandler(item) {
-    addTowatchLater(item);
-  }
+  const { watchLaterVideo, removeFromwatchLater } = useWatchLater();
 
   function removeFromwatchLaterHandler(item) {
     removeFromwatchLater(item);
   }
   return (
     <>
-      <h2 className="text-center color-primary">Explore</h2>
+      <h2 className="text-center color-primary">watchLater Videos</h2>
       <div className="card-container mb-1">
-        {loading && <h1>loading.....</h1>}
-        {video &&
-          video.map((item) => {
+        {watchLaterVideo.length > 0 ? (
+          watchLaterVideo.map((item) => {
             return (
               <div className="video-card">
                 <div
@@ -41,22 +32,12 @@ function Explore() {
                   />{" "}
                 </div>
                 <div className="video-operation">
-                  {watchLaterVideo.findIndex((i) => i._id === item._id) !==
-                  -1 ? (
-                    <span
-                      onClick={() => removeFromwatchLaterHandler(item)}
-                      className="btn-watchlist"
-                    >
-                      <BsFillTrashFill />
-                    </span>
-                  ) : (
-                    <span
-                      onClick={() => addTowatchLaterHandler(item)}
-                      className="btn-watchlist"
-                    >
-                      <BsFillBookmarkPlusFill />
-                    </span>
-                  )}
+                  <span
+                    onClick={() => removeFromwatchLaterHandler(item)}
+                    className="btn-watchlist"
+                  >
+                    <BsFillTrashFill />
+                  </span>
                 </div>
                 <div className="video-body">
                   <h2 className="video-name">{item.title}</h2>
@@ -70,10 +51,15 @@ function Explore() {
                 </div>
               </div>
             );
-          })}
+          })
+        ) : (
+          <div>
+            <h2>You dont have any watchLater video! </h2>
+          </div>
+        )}
       </div>
     </>
   );
 }
 
-export { Explore };
+export { WatchLaterVideo };
