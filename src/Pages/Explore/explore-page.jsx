@@ -2,7 +2,7 @@ import "./explore-page.css";
 import { useVideo } from "../../Context/video-context";
 import { useWatchLater } from "../../Context/watchlater-context";
 import { BsFillBookmarkPlusFill, BsFillTrashFill } from "react-icons/bs";
-
+import {useWatchHistory} from "../../Context/watchhistory-context";
 import { useNavigate } from "react-router-dom";
 
 function Explore() {
@@ -10,6 +10,12 @@ function Explore() {
   const { video, loading } = useVideo();
   const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
     useWatchLater();
+    const {addToWatchHistory} = useWatchHistory()
+
+    function addToWatchHistoryHandler(item){
+      addToWatchHistory(item)
+    }
+  
 
   function addTowatchLaterHandler(item) {
     addTowatchLater(item);
@@ -31,6 +37,7 @@ function Explore() {
                   onClick={() => {
                     console.log("clicked!!");
                     navigateTo(`/explore/${item._id}`);
+                    addToWatchHistoryHandler(item)
                   }}
                   className="video-img"
                 >
