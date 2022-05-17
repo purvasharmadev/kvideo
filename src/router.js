@@ -17,6 +17,7 @@ import { Explore } from "./Pages/Explore/explore-page";
 import { Login } from "./Auth/Login/login";
 import { Signin } from "./Auth/Signup/signup";
 import { WatchLaterVideo } from "./Pages/WatchLater/watch-later";
+import {WatchHistory} from "./Pages/WatchHistory/watch-history";
 export default function URLRoutes() {
   const { isLoggedIn } = useAuth();
 
@@ -34,6 +35,7 @@ export default function URLRoutes() {
         <Route path="/explore/:videoId" element={<VideoDetail />} />
         <Route path="/liked-video" element={<LikedVideo />} />
         <Route path="/watch-later" element={<WatchLaterVideo />} />
+        <Route path="/watch-history" element={<WatchHistory />} />
       </Route>
 
       {/* Resticted Route */}

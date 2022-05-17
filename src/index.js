@@ -12,8 +12,9 @@ import { VideoProvider } from "./Context/video-context";
 import { LikedProvider } from "./Context/liked-context";
 
 // import watchlater provider
-
 import { WatchLaterProvider } from "./Context/watchlater-context";
+
+import { WatchHistoryProvider } from "./Context/watchhistory-context";
 
 // AuthProvider
 import { AuthProvider } from "./Auth/auth-context";
@@ -28,7 +29,9 @@ ReactDOM.render(
         <VideoProvider>
           <LikedProvider>
             <WatchLaterProvider>
+              <WatchHistoryProvider>
               <App />
+              </WatchHistoryProvider>
             </WatchLaterProvider>
           </LikedProvider>
         </VideoProvider>
