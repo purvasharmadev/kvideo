@@ -60,6 +60,11 @@ function Nav() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/playlist" className="nav-link link">
+               Playlist
+              </Link>
+            </li>
+            <li className="nav-item">
               <span onClick={logOut} className=" nav-link link">
                 Logout
               </span>
