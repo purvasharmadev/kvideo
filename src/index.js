@@ -19,6 +19,10 @@ import { WatchHistoryProvider } from "./Context/watchhistory-context";
 // AuthProvider
 import { AuthProvider } from "./Auth/auth-context";
 
+// import playlist proivder
+import { PlaylistProvider } from "./Context/playlist-context";
+
+
 // Call make Server
 makeServer();
 
@@ -27,6 +31,7 @@ ReactDOM.render(
     <BrowserRouter>
       <AuthProvider>
         <VideoProvider>
+          <PlaylistProvider>
           <LikedProvider>
             <WatchLaterProvider>
               <WatchHistoryProvider>
@@ -34,6 +39,7 @@ ReactDOM.render(
               </WatchHistoryProvider>
             </WatchLaterProvider>
           </LikedProvider>
+          </PlaylistProvider>
         </VideoProvider>
       </AuthProvider>
     </BrowserRouter>
