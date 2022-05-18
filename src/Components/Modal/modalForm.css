@@ -1,0 +1,26 @@
+.modal-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    background: var(--COLOR-SHADOW);
+    opacity: 0.9;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid 2px;
+  }
+  
+  .modal-div .modal {
+    height: 50%;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+  }
+  
