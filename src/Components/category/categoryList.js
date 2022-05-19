@@ -1,27 +1,20 @@
 import '../../Pages/HomePage/home-page.css'
-import React,{useEffect} from "react";
-import { useAxios } from "../../Hooks/useAxios";
-import {CategoryCard} from "../../Pages/Category/category-card"
+import React from "react";
+import {CategoryCard} from "../../Pages/Category/category-card";
+import {useCategory} from "../../Context/category-context"
 
 function CategoryList() {
-  const { response, error, loading,fetchData } = useAxios();
-
-  useEffect(()=>{
-    fetchData({
-      method:"get",
-      url:"/api/categories"
-    })
-  })
-
+  const {category,loader} = useCategory()
   return (
     <>
-        {error && <h2>{error}</h2>}
-        {loading && <h2>loading...........</h2>}
+                {loader && <h2 className='text-center p-1 m-1'>loading...........</h2>} 
+
         {/*  CategoryCards */}
-        <div className="category-container gutter-x gutter-y">
-          {response.categories &&
-            response.categories.map((item) => (
+        <div className="category-container">
+          {category &&
+            category.map((item) => (
               <CategoryCard
+              key = {item._id}
                 Name={item.categoryName}
                 Img={item.img}
               />
