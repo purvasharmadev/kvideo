@@ -84,7 +84,7 @@ export const videos = [
     title: "Let's BTS",
     description:
       "The global artists who swept the American Billboard charts, BTS are back on the air! On this special talk show, all seven members are here to converse with the viewers and deliver a message of consolation and hope to those who are struggling due to COVID-19. Also, the members plan to divulge their honest thoughts and stories, which they have yet to reveal.",
-    category: "Talk Show",
+    category: "Talk Shows",
     trending: true,
     lang: "korean",
     subtitle: "english",
@@ -118,7 +118,7 @@ export const videos = [
     title: "Parasite",
     description:
       "Bong Joon Ho brings his singular mastery home to Korea in this pitch-black modern fairytale. Meet the Park Family: the picture of aspirational wealth. And the Kim Family, rich in street smarts but not much else. Be it chance or fate, these two houses are brought together. When a parasitic interloper threatens the Kims' newfound comfort, a savage, underhanded battle for dominance breaks out, threatening to destroy the fragile ecosystem between the Kims and the Parks.",
-    category: "Movie",
+    category: "Movies",
     trending: true,
     lang: "korean",
     subtitle: "english",
@@ -135,7 +135,7 @@ export const videos = [
     title: "Train To Busan",
     description:
       "A father with not much time for his daughter are boarding the KTX, a fast train that shall bring them from Seoul to Busan. But during their journey, the apocalypse begins, and most of the earth's population become flesh craving zombies. While the KTX is shooting towards Busan, the passenger's fight for their families and lives against the zombies - and each other.",
-    category: "Movie",
+    category: "Movies",
     trending: true,
     lang: "korean",
     subtitle: "english",
@@ -171,7 +171,7 @@ export const videos = [
     title: "Midnight Runners",
     description:
       "Two friends who are students at Korean National Police University, find themselves in an endless race against time after they witness a kidnapping and decide to use their knowledge.    ",
-    category: "Movie",
+    category: "Movies",
     trending: true,
     lang: "korean",
     subtitle: "english",

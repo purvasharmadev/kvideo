@@ -12,10 +12,10 @@ const headCarousel = [
         "https://6.vikiplatform.com/image/647f70f7bc2a413bb7371e3093f37bda.jpeg?x=b"
     },
     {
-      title: "Buisness Proposal",
-      category: "Drama",
+      title: "Parasite",
+      category: "Movies",
       img:
-        "https://www.nme.com/wp-content/uploads/2022/03/a-business-proposal-recap-episode-nine-ten-k-drama.jpeg"
+        "https://media.newyorker.com/photos/5da4a5c756dcd400082a63ba/master/pass/Brody-Parasite.jpg"
     },
 
   ];
