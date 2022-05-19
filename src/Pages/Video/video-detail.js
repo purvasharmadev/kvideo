@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { useAxios } from "../../Hooks/useAxios";
 import { useParams } from "react-router-dom";
 import "./video-detail.css";
@@ -29,10 +29,11 @@ export function VideoDetail() {
     addTowatchLater(item);
   }
 
+
   useEffect(() => {
     fetchData({
       method: "get",
-      url: `/api/video/${videoId}`,
+      url: `/api/video/${videoId}`
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
@@ -132,14 +133,25 @@ export function VideoDetail() {
                   )}
                 </div>
               </div>
-              <iframe
-                className="iframe-responsive"
-                height="100%"
-                src={item.trailer}
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
+              <div 
+               className="iframe-responsive w-100">
+                   <iframe
+                     height="100%"
+                     width="100%"
+                     src={item.trailer}
+                     title="YouTube video player"
+                     frameBorder="0"
+                     allow="accelerometer;
+                      autoplay; 
+                      clipboard-write; 
+                      encrypted-media; 
+                      gyroscope; 
+                      picture-in-picture"
+                    allowFullScreen
+                   ></iframe>
+                 
+
+              </div>
             </div>
           </div>
         </div>

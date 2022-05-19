@@ -55,6 +55,11 @@ function Nav() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/watch-history" className="nav-link link">
+                Watch History
+              </Link>
+            </li>
+            <li className="nav-item">
               <span onClick={logOut} className=" nav-link link">
                 Logout
               </span>
