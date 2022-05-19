@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { usePlaylist } from "../../Context/playlist-context";
-import { BsPlusSquare,BsFillBookmarkPlusFill,BsFillTrashFill } from "react-icons/bs";
+import { BsPlusSquare,BsFillTrashFill } from "react-icons/bs";
 import { ModalForm } from "../../Components/Modal/modalForm";
 
 function Playlists() {
@@ -76,7 +76,7 @@ function Playlists() {
                 </div>
                 <div className="video-operation">
                   <span onClick={()=>deleteVideoFromPlaylistHandler(playlistName,item)} className="btn-watchlist">
-                    <BsFillBookmarkPlusFill />
+                    <BsFillTrashFill />
                   </span>
                 </div>
                 <div className="video-body">
