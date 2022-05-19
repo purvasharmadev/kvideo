@@ -51,7 +51,7 @@ function LikedVideo() {
               </div>
             );
           }):
-          <div>
+          <div className="flex flex-space-center align-item-center h-100">
               <h2>You dont have any liked video! </h2>
           </div>
           

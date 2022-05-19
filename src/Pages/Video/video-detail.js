@@ -50,7 +50,7 @@ export function VideoDetail() {
 
   return (
     <>
-      {loading && <h2 align="center">loading....</h2>}
+      {loading &&   <div className="flex flex-space-center align-item-center h-100">loading....</div>}
       {error && <h2>{error}</h2>}
       {response.length !== 0 ? (
         <div

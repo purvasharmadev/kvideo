@@ -18,6 +18,10 @@
     margin-left: 10px;
   }
 
+  .h-100{
+    height: 80vh;
+  }
+
   .flex-space-end{
     justify-content:flex-end;
   }
