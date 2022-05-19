@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 
 // VideoProvider
 import { VideoProvider } from "./Context/video-context";
+// import category provide
+import { CategoryProvider } from "./Context/category-context";
 
 // import liked videos provider
 import { LikedProvider } from "./Context/liked-context";
@@ -35,7 +37,9 @@ ReactDOM.render(
           <LikedProvider>
             <WatchLaterProvider>
               <WatchHistoryProvider>
-              <App />
+                <CategoryProvider>
+                <App />
+                </CategoryProvider>
               </WatchHistoryProvider>
             </WatchLaterProvider>
           </LikedProvider>
