@@ -1,44 +1,35 @@
 import "./explore-page.css";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useVideo } from "../../Context/video-context";
 import { useWatchLater } from "../../Context/watchlater-context";
 import { BsFillBookmarkPlusFill, BsFillTrashFill } from "react-icons/bs";
-import {useWatchHistory} from "../../Context/watchhistory-context";
+import { useWatchHistory } from "../../Context/watchhistory-context";
 import { useNavigate } from "react-router-dom";
-import {useCategory} from "../../Context/category-context"
-
+import { useCategory } from "../../Context/category-context";
 
 function Explore() {
   // const [categories,setCategories] = useState()
 
-  
-
-
   const navigateTo = useNavigate();
-  const { video, loading,filterState,filterDispatch } = useVideo();
-  // console.log("categoryId ",categoryId)
-  const [allVideos,setAllVideos]= useState(video)
-  const {category} = useCategory()
-  // console.log("cate ", category)
-  console.log("all video ", allVideos)
-  // console.log("state ", filterState)
-  // console.log("video ", video)
+  const { video, loading, filterState, filterDispatch } = useVideo();
+  const [allVideos, setAllVideos] = useState(video);
+  const { category } = useCategory();
 
   const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
     useWatchLater();
-    const {addToWatchHistory} = useWatchHistory()
+  const { addToWatchHistory } = useWatchHistory();
 
+  const applyFilter = () => {
+    const filteredVideo = video.filter(
+      (item) => item.category === filterState.categoryName
+    );
+    setAllVideos(filteredVideo);
+  };
 
-    const applyFilter = ()=>{
-     const filteredVideo = video.filter((item)=>item.category === filterState.categoryName)
-     setAllVideos(filteredVideo)
-    }
-
-    function addToWatchHistoryHandler(item){
-      addToWatchHistory(item)
-    }
-  
+  function addToWatchHistoryHandler(item) {
+    addToWatchHistory(item);
+  }
 
   function addTowatchLaterHandler(item) {
     addTowatchLater(item);
@@ -48,39 +39,66 @@ function Explore() {
     removeFromwatchLater(item);
   }
 
-  // useEffect(()=>{
-  //   setAllVideos(video)
-
-  // },[])
-
-  useEffect(()=>{
-    console.log("useEffect for applyFilters")
-    if(filterState.categoryName){
-      applyFilter()
+  useEffect(() => {
+    if (filterState.categoryName) {
+      applyFilter();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  },[filterState])
-
+  }, [filterState]);
 
   return (
     <>
       <h2 className="text-center color-primary">Explore</h2>
       <div className="flex flex-space-between w-50 m-auto flex-wrap">
-      <button style={{backgroundColor : filterState.categoryName === "" ? "var(--PRIMARY-COLOR)" : "", color:filterState.categoryName === "" ? "var(--TEXT-COLOR)" : ""}} onClick={()=>{
-          filterDispatch({type:"Category",payload:""})
-          setAllVideos(video)
-        }} className="category-btn">All</button>
-      {category && category.map((item)=>{
-        return <button style={{backgroundColor:item.categoryName === filterState.categoryName ? "var(--PRIMARY-COLOR)":"",color:item.categoryName === filterState.categoryName ? "var(--TEXT-COLOR)":""}} onClick={()=>{
-          applyFilter()
-          filterDispatch({type:"Category",payload:item.categoryName})
-        }} className="category-btn">{item.categoryName}</button>
-      } )}
+        <button
+          style={{
+            backgroundColor:
+              filterState.categoryName === "" ? "var(--PRIMARY-COLOR)" : "",
+            color: filterState.categoryName === "" ? "var(--TEXT-COLOR)" : "",
+          }}
+          onClick={() => {
+            filterDispatch({ type: "Category", payload: "" });
+            setAllVideos(video);
+          }}
+          className="category-btn"
+        >
+          All
+        </button>
+        {category &&
+          category.map((item) => {
+            return (
+              <button
+                style={{
+                  backgroundColor:
+                    item.categoryName === filterState.categoryName
+                      ? "var(--PRIMARY-COLOR)"
+                      : "",
+                  color:
+                    item.categoryName === filterState.categoryName
+                      ? "var(--TEXT-COLOR)"
+                      : "",
+                }}
+                onClick={() => {
+                  applyFilter();
+                  filterDispatch({
+                    type: "Category",
+                    payload: item.categoryName,
+                  });
+                }}
+                className="category-btn"
+              >
+                {item.categoryName}
+              </button>
+            );
+          })}
       </div>
-   
+
       <div className="card-container mb-1">
-        {loading &&             <div className="flex flex-space-center align-item-center h-100">loading.....</div>}
+        {loading && (
+          <div className="flex flex-space-center align-item-center h-100">
+            loading.....
+          </div>
+        )}
         {allVideos &&
           allVideos.map((item) => {
             return (
@@ -88,7 +106,7 @@ function Explore() {
                 <div
                   onClick={() => {
                     navigateTo(`/explore/${item._id}`);
-                    addToWatchHistoryHandler(item)
+                    addToWatchHistoryHandler(item);
                   }}
                   className="video-img"
                 >

@@ -14,7 +14,7 @@ export function VideoDetail() {
   const { addToLiked, likedVideo, removeFromLiked } = useLiked();
   const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
     useWatchLater();
-  const {addVideoToPlaylist,openModal,setOpenModal} = usePlaylist()
+  const {openModal,setOpenModal} = usePlaylist()
 
 
   function removeFromLikedHandler(item) {
