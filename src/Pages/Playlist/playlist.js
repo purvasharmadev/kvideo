@@ -76,7 +76,7 @@ function Playlists() {
                 </div>
                 <div className="video-operation">
                   <span onClick={()=>deleteVideoFromPlaylistHandler(playlistName,item)} className="btn-watchlist">
-                    <BsFillBookmarkPlusFill />
+                    <BsFillTrashFill />
                   </span>
                 </div>
                 <div className="video-body">
