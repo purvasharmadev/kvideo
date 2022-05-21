@@ -95,7 +95,6 @@ function PlaylistProvider({ children }) {
           },
         }
       );
-      console.log("delete res ", res);
       setPlaylistVideo(res.data.playlists);
       // setVideoList(res.data.playlists)
       toast.error("Delete Successfull", {
@@ -141,7 +140,6 @@ function PlaylistProvider({ children }) {
 
   // remove video from playlist
   async function removeVideoFromPlaylist(playlistId, item) {
-    console.log("playlistId,item ", playlistId," ", item)
     try {
       const res = await axios.delete(
         `/api/user/playlists/${playlistId}/${item._id}`,
@@ -169,7 +167,7 @@ function PlaylistProvider({ children }) {
 
   useEffect(() => {
     getPlaylist();
-  }, [playlist]);
+  }, [PlaylistVideo]);
 
   return (
     <PlaylistContext.Provider

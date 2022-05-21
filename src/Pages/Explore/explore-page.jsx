@@ -1,15 +1,16 @@
 import "./explore-page.css";
 import { useEffect, useState } from "react";
-
 import { useVideo } from "../../Context/video-context";
 import { useWatchLater } from "../../Context/watchlater-context";
 import { BsFillBookmarkPlusFill, BsFillTrashFill } from "react-icons/bs";
 import { useWatchHistory } from "../../Context/watchhistory-context";
 import { useNavigate } from "react-router-dom";
 import { useCategory } from "../../Context/category-context";
+import { useAuth } from "../../Auth/auth-context"
 
 function Explore() {
   // const [categories,setCategories] = useState()
+  const {isLoggedIn} = useAuth()
 
   const navigateTo = useNavigate();
   const { video, loading, filterState, filterDispatch } = useVideo();
@@ -32,7 +33,12 @@ function Explore() {
   }
 
   function addTowatchLaterHandler(item) {
-    addTowatchLater(item);
+    if(isLoggedIn){
+      addTowatchLater(item);
+
+    }else{
+      navigateTo("/login")
+    }
   }
 
   function removeFromwatchLaterHandler(item) {

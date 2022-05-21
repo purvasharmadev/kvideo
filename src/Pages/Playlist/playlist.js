@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { usePlaylist } from "../../Context/playlist-context";
 import { BsPlusSquare,BsFillTrashFill } from "react-icons/bs";
 import { ModalForm } from "../../Components/Modal/modalForm";
+import {useNavigate} from "react-router-dom";
 
 function Playlists() {
+  const navigateTo = useNavigate()
   const [playlistName, setPlaylistName] = useState(null);
+  
 
   const { openModal, setOpenModal,DeletePlaylist,playlist,videoList,setVideoList,getVideoList,removeVideoFromPlaylist } =
     usePlaylist();
@@ -20,6 +23,7 @@ function Playlists() {
     }
 
   useEffect(() => {
+    console.log("playlist ", playlist)
       getVideoList(playlistName);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playlistName]);
@@ -67,7 +71,9 @@ function Playlists() {
             videoList.map((item) => {
               return (
                 <div className="video-card">
-                <div className="video-img">
+                <div onClick={() => {
+                    navigateTo(`/explore/${item._id}`);
+                  }} className="video-img">
                   <img
                     className="img-responsive video-img"
                     src={item.poster}
