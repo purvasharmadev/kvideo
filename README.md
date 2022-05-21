@@ -2,6 +2,7 @@
 
 A fun video library made with reactJs(frontend) and Mockbee(mock backend)
 
+![Home](https://user-images.githubusercontent.com/71826879/169634855-d4edd9d7-0647-4286-bcb6-74f24000308c.png)
 
 ## Features
 ```
