@@ -2,6 +2,7 @@ nav{
     background-color: var(--PRIMARY-COLOR);
 }
 
+
 .navbar-list.toggle-active{
     z-index: 999;
     position: absolute;

@@ -32,3 +32,12 @@
     margin: 1rem 0;
   }
   
+
+  @media (max-width:550px) {
+    .category-container{
+      flex-wrap: wrap;
+    }
+    .category-container .card{
+      width: 100%;
+    }
+  }

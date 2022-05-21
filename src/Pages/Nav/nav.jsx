@@ -2,6 +2,7 @@ import React from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
+import {BsPlayCircleFill,BsBookmarkHeartFill,BsStopwatchFill,BsSkipEndBtnFill,BsPersonCircle} from "react-icons/bs"
 
 import { useAuth } from "../../Auth/auth-context";
 
@@ -39,36 +40,43 @@ function Nav() {
         {/* Explore */}
         <li className="nav-item">
           <Link to="/explore" className=" nav-link link">
-            Explore
+            <span>
+            <BsPlayCircleFill/>
+              </span>Explore
           </Link>
         </li>
         {isLoggedIn ? (
           <>
             <li className="nav-item">
               <Link to="/liked-video" className="nav-link link">
-                ❤
+                <span>❤</span> Likes
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/watch-later" className="nav-link link">
-                watch later
+               <span><BsBookmarkHeartFill/></span> Watch Later
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/watch-history" className="nav-link link">
-                Watch History
+               <span><BsStopwatchFill/></span> Watch History
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/playlist" className="nav-link link">
+              <span><BsSkipEndBtnFill/></span> Playlist
               </Link>
             </li>
             <li className="nav-item">
               <span onClick={logOut} className=" nav-link link">
-                Logout
+              <span><BsPersonCircle/></span>  Logout
               </span>
             </li>
           </>
         ) : (
           <li className="nav-item">
             <Link to="/login" className=" nav-link link">
-              Login
+            <span><BsPersonCircle/></span>   Login
             </Link>
           </li>
         )}

@@ -53,7 +53,7 @@ function WatchLaterVideo() {
             );
           })
         ) : (
-          <div>
+          <div className="flex flex-space-center align-item-center h-100">
             <h2>You dont have any watchLater video! </h2>
           </div>
         )}

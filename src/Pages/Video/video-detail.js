@@ -5,6 +5,8 @@ import "./video-detail.css";
 import { BsHeart, BsSuitHeartFill } from "react-icons/bs";
 import { useLiked } from "../../Context/liked-context";
 import { useWatchLater } from "../../Context/watchlater-context";
+import { usePlaylist } from "../../Context/playlist-context";
+import { ModalForm } from "../../Components/Modal/modalForm";
 
 export function VideoDetail() {
   const { videoId } = useParams();
@@ -12,6 +14,8 @@ export function VideoDetail() {
   const { addToLiked, likedVideo, removeFromLiked } = useLiked();
   const { watchLaterVideo, addTowatchLater, removeFromwatchLater } =
     useWatchLater();
+  const {openModal,setOpenModal} = usePlaylist()
+
 
   function removeFromLikedHandler(item) {
     removeFromLiked(item);
@@ -29,6 +33,10 @@ export function VideoDetail() {
     addTowatchLater(item);
   }
 
+  // <button onClick={() => setOpenModal(true)} className="btn btn-primary">
+  // <BsPlusSquare/>   Add Playlist
+  //   </button>
+
 
   useEffect(() => {
     fetchData({
@@ -42,7 +50,7 @@ export function VideoDetail() {
 
   return (
     <>
-      {loading && <h2 align="center">loading....</h2>}
+      {loading &&   <div className="flex flex-space-center align-item-center h-100">loading....</div>}
       {error && <h2>{error}</h2>}
       {response.length !== 0 ? (
         <div
@@ -104,7 +112,7 @@ export function VideoDetail() {
                     </button>
                   )}
 
-                  <button className="btn btn-primary">
+                  <button onClick={() => setOpenModal(true)} className="btn btn-primary">
                     {" "}
                     + Create Playlist{" "}
                   </button>
@@ -133,6 +141,11 @@ export function VideoDetail() {
                   )}
                 </div>
               </div>
+              {openModal && (
+      <div className="modal-div">
+        <ModalForm closeModal={setOpenModal} item={item} />
+      </div>
+    )}
               <div 
                className="iframe-responsive w-100">
                    <iframe

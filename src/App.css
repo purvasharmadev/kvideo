@@ -2,3 +2,47 @@
     --GRAY-COLOR: #374151;
     --COLOR-SHADOW:BLACK;
   }  
+
+  .btn{
+    padding:10px;
+    font-size: 12px;
+  }
+  .p-0{
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .mr-1{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .h-100{
+    height: 80vh;
+  }
+
+  .flex-space-end{
+    justify-content:flex-end;
+  }
+
+  .btn-playlist{
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 12px;
+    padding:12px 15px;
+    text-transform: capitalize;
+  }
+
+  .btn-playlist:hover{
+    background-color: var(--SECONDARY-COLOR);
+    color:white;
+  }
+
+  /* .playlist{
+    border: 2px solid yellow;
+  }
+
+  .playlist div{
+    border: 2px green solid;
+  } */

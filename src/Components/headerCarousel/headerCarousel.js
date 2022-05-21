@@ -10,6 +10,9 @@ import {
 
 function HeaderCarousel() {
     const [index, setIndex] = useState(0);
+      setTimeout(()=>{
+        index < 2 ? setIndex(index+1):setIndex(0)
+      },3000)
 
     return (
       <>
