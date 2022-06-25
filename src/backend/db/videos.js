@@ -84,7 +84,7 @@ export const videos = [
     title: "Let's BTS",
     description:
       "The global artists who swept the American Billboard charts, BTS are back on the air! On this special talk show, all seven members are here to converse with the viewers and deliver a message of consolation and hope to those who are struggling due to COVID-19. Also, the members plan to divulge their honest thoughts and stories, which they have yet to reveal.",
-    category: "Talk Shows",
+    category: "Variety",
     trending: true,
     lang: "korean",
     subtitle: "english",
@@ -187,7 +187,7 @@ export const videos = [
     title: "One Fine Week",
     description:
       "What if I date a really cool guy? What if I become someone else?” This story shows these kinds of imaginations before our eyes. Da Eun, a college student who is still finding her career path, becomes Byul, who has been a singer since she was young. Da Eun spends time with a celebrity named Jung Woo and experiences the dreamy life of luxury, while also seeing its dark side. Byul also experiences the preciousness of everyday life, something she hasn’t felt in a while as she became a clumsy part timer at a café with Ji Han and Ari",
-    category: "Web Drama",
+    category: "Drama",
     episode: "10",
     season: "2",
     trending: true,
@@ -205,7 +205,7 @@ export const videos = [
     title: "Be My Boyfriend",
     description:
       "At Hwayang High School, no student's popularity eclipses that of the third-year senior Oh Ji Na (Lee Shi Woo).Lee Seung Min (Shin Hyun Seung) is a junior student at the same school. And like many others, he is smitten with the many charms of Oh Ji Na.He is sure that he does not stand a chance at winning her heart.But he is in for a surprise when Oh Ji Na comes up with a plan to begin a bogus “contract” relationship with him, in order to further her career.Spending time together softens her heart, though - could she end up falling for this unassuming younger student for real?",
-    category: "Web Drama",
+    category: "Drama",
     episode: "10",
     season: "1",
     trending: true,
@@ -220,4 +220,43 @@ export const videos = [
       "https://6.vikiplatform.com/image/6260c45112584b2aaf9d35f58b41db6f.jpg?x=b&a=0x0&s=480x270&e=t&q=g",
     trailer: "https://www.youtube.com/embed/aB7biDbZVbQ?start=2",
   },
+
+  {
+    _id: uuid(),
+    title: "Yet to come",
+    description:
+      "BTS (방탄소년단) 'Yet To Come (The Most Beautiful Moment)' Official MV",
+    category: "Songs",
+    trending: true,
+    lang: "korean",
+    subtitle: "english",
+    dubbed: false,
+    year: "2021",
+    rating: 5,
+    poster:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgraf_ltcRcSJ07ZaqjqRnUgnnyuBUWmPSAxZH0byWhMXd-eZFlLrUQLH2Lns4MVKM9v4&usqp=CAU",
+    banner:
+      "https://www.allkpop.com/upload/2022/06/content/100114/1654838051-inbound9154688772762926178.jpg",
+    trailer:"https://www.youtube.com/embed/kXpOEzNZ8hQ",
+  },
+
+  {
+    _id: uuid(),
+    title: "Love Scenario",
+    description:
+      "iKON - ‘사랑을 했다(LOVE SCENARIO)’ M/V",
+    category: "Songs",
+    trending: true,
+    lang: "korean",
+    subtitle: "english",
+    dubbed: false,
+    year: "2018",
+    rating: 5,
+    poster:
+      "https://wallpapers.com/images/high/ikon-love-scenario-rfe1uuixk9ttrsnj.jpg",
+    banner:
+      "https://www.allkpop.com/upload/2018/02/af_org/03112311/ikon.jpg",
+    trailer:"https://www.youtube.com/embed/vecSVX1QYbQ",
+  },
+
 ];
