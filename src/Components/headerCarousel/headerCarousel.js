@@ -18,7 +18,8 @@ function HeaderCarousel() {
       <>
         <div
           style={{
-            backgroundImage: `url(${headCarousel[index].img})`
+            backgroundImage: `url(${headCarousel[index].img})`,
+            transition:"all 2s"
           }}
           className="carousel-container flex flex-space-between align-item-center"
         >
@@ -28,12 +29,12 @@ function HeaderCarousel() {
             }}
             className="carousel-left p-1"
           >
-            <button className="btn-float color-white">
+            <button className="btn-float">
               {" "}
               <BsFillArrowLeftCircleFill />
             </button>
           </div>
-          <div style={{}} className="carousel-center">
+          <div className="carousel-center">
             <span className="ecom-badge m-1">{headCarousel[index].category}</span>
             <h2 className="carousel-text">{headCarousel[index].title}</h2>
           </div>
@@ -45,7 +46,7 @@ function HeaderCarousel() {
             }}
             className="carousel-right p-1 "
           >
-            <button className="btn-float color-white">
+            <button className="btn-float">
               {" "}
               <BsFillArrowRightCircleFill />
             </button>

@@ -10,6 +10,7 @@
     background-clip: content-box;
     max-inline-size: 100%;
     opacity: 0.9;
+    box-shadow: 0 0 12px #374151;
   }
   
   .carousel-center {
@@ -31,6 +32,7 @@
     background: none;
     transition: transform 0.2s;
     opacity:0.6;
+    color:white
   }
   .btn-float:hover {
       color:white;
