@@ -2,7 +2,7 @@ import "../auth.css";
 import React, { useEffect, useState } from "react";
 import { useAxios } from "../../Hooks/useAxios";
 import { useAuth } from "../auth-context";
-import { useLocation, useNavigate ,Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Login() {
@@ -41,9 +41,12 @@ function Login() {
   useEffect(() => {
     if (response !== undefined && response.foundUser) {
       setIsLoggedIn(true);
-      localStorage.setItem("userToken",response.encodedToken)
-      toast.success("Sucessfully Login!",{id:"login-success",position: toast.POSITION.TOP_RIGHT,
-      autoClose:2000})
+      localStorage.setItem("userToken", response.encodedToken);
+      toast.success("Sucessfully Login!", {
+        id: "login-success",
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+      });
       location.state !== null
         ? navigate(location.state?.from?.pathname, { replace: true })
         : navigate("/", { replace: true });
@@ -52,9 +55,6 @@ function Login() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
-  
-  
-
 
   return (
     <div className="flex p-1 flex-space-center form-auth">
@@ -83,16 +83,15 @@ function Login() {
             name="password"
             placeholder="********"
           />
-          <div className="p-1">
-            <span
-              onClick={() => guestLogin()}
-              className="link position-right color-primary"
-            >
-              Guest Login
-            </span>
-          </div>
-          <button type="submit" className="btn btn-primary ">
+          <button type="submit" className="btn btn-primary mb-1">
             Login
+          </button>
+          <button
+            type="submit"
+            onClick={() => guestLogin()}
+            className="btn btn-secondary"
+          >
+            Guest Login
           </button>
 
           <h4>
