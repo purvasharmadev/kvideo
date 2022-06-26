@@ -6,7 +6,7 @@ import { v4 } from "uuid";
 export function ModalForm({ closeModal,item }) {
   const { CreatePlaylist,PlaylistVideo,addVideoToPlaylist} = usePlaylist()
   const [playlistData,setPlaylistData] = useState({
-    title:"",description:""
+    title:""
   })
   const addToPlaylistHandler = (id,item)=>{
     addVideoToPlaylist(id,item)
@@ -15,9 +15,11 @@ export function ModalForm({ closeModal,item }) {
     CreatePlaylist({
       _id:v4,
       title:playlistData.title,
-      description:playlistData.description
   }
   );
+  setPlaylistData({
+    title:""
+  })
   closeModal(true)
 e.preventDefault()
   }
@@ -36,15 +38,16 @@ e.preventDefault()
         </div>
         <div className="modal-text">
           <input 
+          value={playlistData.title}
           onChange={(e)=>
             setPlaylistData((prev) => ({ ...prev, title: e.target.value }))
           } 
           type="text" placeholder="enter title"/>
-          <input 
+          {/* <input 
           onChange={(e)=>
             setPlaylistData((prev) => ({ ...prev, description: e.target.value }))
           } 
-          type="text" placeholder="enter descriptiond"/>
+          type="text" placeholder="enter descriptiond"/> */}
 
         </div>
         <div className="modal-footer">
