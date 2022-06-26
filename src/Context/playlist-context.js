@@ -129,6 +129,7 @@ function PlaylistProvider({ children }) {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
       });
+      setOpenModal(false)
     } catch (error) {
       toast.error(error.response.data.errors[0], {
         id: "PlaylistAddVideo-error",
