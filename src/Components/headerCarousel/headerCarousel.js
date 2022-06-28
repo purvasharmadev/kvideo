@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './headerCarousel.css';
 import { headCarousel } from '../../backend/db/carousel';
 
@@ -6,13 +6,21 @@ import {
     BsFillArrowLeftCircleFill,
     BsFillArrowRightCircleFill
   } from "react-icons/bs";
-  import { useState } from "react";
+
 
 function HeaderCarousel() {
-    const [index, setIndex] = useState(0);
-      setTimeout(()=>{
+    const [index, setIndex] =useState(0) 
+    let timer;
+    const stopTimeout = ()=>{
+      window.clearTimeout(timer)
+    }
+   
+
+    useEffect(()=>{
+      timer = setTimeout(()=>{
         index < 2 ? setIndex(index+1):setIndex(0)
-      },3000)
+      },4500)
+    },[index])
 
     return (
       <>
@@ -26,6 +34,7 @@ function HeaderCarousel() {
           <div
             onClick={() => {
               index === 0 ? setIndex(0) : setIndex(() => index - 1);
+              stopTimeout()
             }}
             className="carousel-left p-1"
           >
@@ -43,6 +52,7 @@ function HeaderCarousel() {
               index === headCarousel.length - 1
                 ? setIndex(0)
                 : setIndex(() => index + 1);
+                stopTimeout()
             }}
             className="carousel-right p-1 "
           >
