@@ -2,7 +2,7 @@
     max-height: 100vh;
     max-width: 100vw;
     width: 100%;
-    height: 25rem;
+    height:25rem;
     background-repeat: no-repeat;
     background-origin: border-box;
     background-size: 100% 100%;
@@ -11,6 +11,7 @@
     max-inline-size: 100%;
     opacity: 0.9;
     box-shadow: 0 0 12px #374151;
+    aspect-ratio:auto;
   }
   
   .carousel-center {

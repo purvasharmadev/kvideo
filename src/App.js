@@ -13,7 +13,6 @@ toast.configure();
 
 
 const apiKey = process.env.REACT_APP_JWT_SECRET
-console.log(apiKey)
 
 
 
@@ -21,7 +20,9 @@ function App() {
   return (
     <>
       <Nav/>
+      <div className="h-100">
       <URLRoutes/>
+      </div>
       <Footer/>
     </>
   );

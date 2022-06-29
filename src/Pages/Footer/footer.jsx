@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsInstagram, BsTwitter, BsLinkedin } from "react-icons/bs";
 import "./footer.css";
+import {useAuth} from '../../Auth/auth-context'
 
 function Footer() {
+  const {isLoggedIn} = useAuth()
   return (
     <>
       <footer>
@@ -12,17 +14,14 @@ function Footer() {
             Home
           </Link>
 
-          <Link to="/product" className="nav-link link">
-            Trending Movies
-          </Link>
+{
+  isLoggedIn ? "":(
+    <Link to="/login" className="nav-link link">
+    Login / Signup
+  </Link>
+  )
 
-          <Link to="/" className="nav-link link">
-            Popular Shows
-          </Link>
-
-          <Link to="/login" className="nav-link link">
-            Login / Signup
-          </Link>
+}
 
           <p className="text-center color-white">
             Follow me on :
