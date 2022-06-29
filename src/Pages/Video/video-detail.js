@@ -131,7 +131,7 @@ export function VideoDetail() {
                     <>
                       <span
                         onClick={() => removeFromLikedHandler(item)}
-                        className="text-md"
+                        className="text-md color-danger"
                       >
                         {" "}
                         <BsSuitHeartFill />

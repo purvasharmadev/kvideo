@@ -9,7 +9,7 @@ const headCarousel = [
       title: "Descendants Of The Sun",
       category: "Drama",
       img:
-        "https://6.vikiplatform.com/image/647f70f7bc2a413bb7371e3093f37bda.jpeg?x=b"
+      "https://wallpapercave.com/wp/wp2167255.jpg"
     },
     {
       title: "Parasite",
