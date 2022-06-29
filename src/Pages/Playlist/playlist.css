@@ -1,0 +1,7 @@
+.uppercase{
+    text-transform: capitalize;
+}
+
+.transition{
+    transition: all 0.2s;
+}
