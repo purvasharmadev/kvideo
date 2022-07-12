@@ -19,22 +19,13 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Web Drama",
-    img:"https://media1.giphy.com/media/IJBcekr2RcHGYo4T1K/giphy.gif"
-  },
-  {
-    _id: uuid(),
-    categoryName: "Talk Shows",
+    categoryName: "Variety",
     img:"https://img.buzzfeed.com/buzzfeed-static/static/2018-10/16/6/asset/buzzfeed-prod-web-02/anigif_sub-buzz-24023-1539685203-1.gif"
 
   },
-
+    {
+    _id: uuid(),
+    categoryName: "Songs",
+    img:"https://c.tenor.com/nsk_Q1JeZAEAAAAC/kim-ji-won-fight-for-my-way.gif"
+  }
 ];
-
-  // {
-  //   _id: uuid(),
-  //   categoryName: "Comedy",
-  //   img:"https://c.tenor.com/nsk_Q1JeZAEAAAAC/kim-ji-won-fight-for-my-way.gif"
-
-  // }
-// https://img.buzzfeed.com/buzzfeed-static/static/2018-10/16/6/asset/buzzfeed-prod-web-02/anigif_sub-buzz-24023-1539685203-1.gif

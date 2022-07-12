@@ -114,7 +114,7 @@ export function VideoDetail() {
 
                   <button onClick={() => setOpenModal(true)} className="btn btn-primary">
                     {" "}
-                    + Create Playlist{" "}
+                    + Add To Playlist{" "}
                   </button>
                   {likedVideo.findIndex((i) => i._id === item._id) === -1 ? (
                     <>
@@ -131,7 +131,7 @@ export function VideoDetail() {
                     <>
                       <span
                         onClick={() => removeFromLikedHandler(item)}
-                        className="text-md"
+                        className="text-md color-danger"
                       >
                         {" "}
                         <BsSuitHeartFill />

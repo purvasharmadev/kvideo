@@ -9,7 +9,6 @@ import { useCategory } from "../../Context/category-context";
 import { useAuth } from "../../Auth/auth-context"
 
 function Explore() {
-  // const [categories,setCategories] = useState()
   const {isLoggedIn} = useAuth()
 
   const navigateTo = useNavigate();
@@ -99,7 +98,7 @@ function Explore() {
           })}
       </div>
 
-      <div className="card-container mb-1">
+      <div className="card-container mb-1 h-100">
         {loading && (
           <div className="flex flex-space-center align-item-center h-100">
             loading.....
